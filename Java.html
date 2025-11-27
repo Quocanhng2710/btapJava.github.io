@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thư viện Ảnh Tương Tác</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        figure {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        figure:hover,
+        figure:focus {
+            transform: scale(1.05);
+            outline: 3px solid #007bff;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body onload="initPage()">
+
+    <h1>Thư viện Ảnh Tương Tác</h1>
+
+    <div class="gallery">
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj_hZOKNn42aM6cVPuCawEl2U1YTtKuhP6G2fFJLNo9_iPGyKk72ocZZc&s" alt="núi Phú Sĩ">
+            <figcaption>Núi</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Nq-8UrkRQ0v_qq684vQ_EaY8bEsYXeagLtU1acN8bJSOZciqnTfL9EI&s" alt="biển Sầm Sơn">
+            <figcaption>Bãi biển</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu1Cazq9MiLko9wcbpPxrE1EWVKH7PV9pVg&s" alt="thành phố Sầm Sơn">
+            <figcaption>Thành phố</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmoGGrwoZB4ztaPskwCYaK23xo8yKoXqbq5Y0EA5412-aSpOi6C0pym0U&s" alt="cánh đồng hoa hướng dương">
+            <figcaption>Cánh đồng</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwxi0BOBW8dWGC0h3EmQdhJv7t-qnWioJwQ&s" alt="Thủ tướng">
+            <figcaption>hhur tướng</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhutbIu2z7E2bi4tm2w9EbAEhKN1ZEZyXO2mC6pmgSRfREuJsdIMfhsyQ&s" alt="Pù Luông">
+            <figcaption>Pù Luông</figcaption>
+        </figure>
+
+    </div>
+
+<script>
+    function initPage() {
+        console.log("➡ Trang đã load – gọi hàm addTabIndex()");
+        addTabIndex();
+        addEvents();
+    }
+
+    function addTabIndex() {
+        let figures = document.querySelectorAll("figure");
+        for (let i = 0; i < figures.length; i++) {
+            figures[i].setAttribute("tabindex", "0");
+            console.log("Thêm tabindex cho figure:", i);
+        }
+    }
+
+    function addEvents() {
+        let figures = document.querySelectorAll("figure");
+
+        figures.forEach((fig, index) => {
+
+            fig.addEventListener("mouseover", () => {
+                console.log("Mouse over:", index);
+                fig.style.boxShadow = "0 0 15px #007bff";
+            });
+
+            fig.addEventListener("mouseleave", () => {
+                console.log("Mouse leave:", index);
+                fig.style.boxShadow = "0 0 10px rgba(0,0,0,0.1)";
+            });
+
+            fig.addEventListener("focus", () => {
+                console.log("Focus:", index);
+                fig.style.border = "2px solid blue";
+            });
+
+            fig.addEventListener("blur", () => {
+                console.log("Blur:", index);
+                fig.style.border = "none";
+            });
+
+        });
+    }
+</script>
+
+</body>
+</html>
